@@ -40,7 +40,9 @@ function App() {
 
   const style = {
     textAlign: "left",
-    marginLeft: "20%"
+    marginLeft: 50,
+    wordBreak: "break-all",
+    marginRight: 50
   }
 
   useEffect(() => {
