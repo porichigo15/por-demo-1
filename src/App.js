@@ -11,11 +11,6 @@ function App() {
   const [statusMessage, setStatusMessage] = useState();
   const [userId, setUserId] = useState();
 
-  const logout = () => {
-    liff.logout();
-    window.location.reload();
-  }
-
   const initLine = () => {
     liff.init({ liffId: '1655661573-l82jdqBN' }, () => {
       if (liff.isLoggedIn()) {
@@ -36,6 +31,11 @@ function App() {
       setStatusMessage(profile.statusMessage);
       setUserId(profile.userId);
     }).catch(err => console.error(err));
+  }
+
+  const logout = () => {
+    liff.logout();
+    window.location.reload();
   }
 
   const style = {
@@ -59,7 +59,7 @@ function App() {
           <p style={style}><b>status message: </b> {statusMessage}</p>
           <p style={style}><b>user id: </b> {userId}</p>
 
-          <button onClick={logout()} style={{ width: "100%", height: 30, marginBottom: 20 }}>Logout</button>
+          <button onClick={() => logout()} style={{ width: "100%", height: 30, marginBottom: 20 }}>Logout</button>
         </div>
       </header>
     </div>
